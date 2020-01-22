@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 
 class TodoList extends Component {
 	render() {
-		const {list, handleDelete, handleEdit, handleReset} = this.props;
+		const {list, handleDelete, handleEdit, handleReset, isEdit} = this.props;
 		return (
 			<ul className='list-group my-5'>
 				<h3 className='text-capitalize text-center'>todo list</h3>
@@ -15,6 +15,7 @@ class TodoList extends Component {
 							text={e}
 							handleEdit={handleEdit}
 							handleDelete={handleDelete}
+							isEdit={isEdit}
 						/>
 					);
 				})}

@@ -28,7 +28,8 @@ class TodoItem extends Component {
 					<span
 						className='mx-2 text-success icon'
 						style={this.style}
-						onClick={() => {
+						onClick={e => {
+							e.stopPropagation();
 							handleEdit(text, id);
 						}}>
 						<i className='fas fa-pen'></i>
@@ -36,7 +37,8 @@ class TodoItem extends Component {
 					<span
 						className='mx-2 text-danger icon'
 						style={this.style}
-						onClick={() => {
+						onClick={e => {
+							e.stopPropagation();
 							let conf = window.confirm(
 								"Do you really want to delete this item?"
 							);

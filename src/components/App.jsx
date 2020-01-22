@@ -31,12 +31,17 @@ class App extends Component {
 	};
 
 	handleEdit = (text, id) => {
-		this.setState(prev => {
-			let list = [...prev.list];
-			list.splice(id, 1);
-			return {list, isEdit: true};
-		});
-		this.input.handleEdit(text);
+		console.log(this.state.isEdit);
+
+		if (this.state.isEdit) return;
+		this.setState(
+			prev => {
+				let list = [...prev.list];
+				list.splice(id, 1);
+				return {list, isEdit: true};
+			},
+			() => this.input.handleEdit(text)
+		);
 	};
 
 	handleDelete = (id, confirm) => {
@@ -66,6 +71,7 @@ class App extends Component {
 							handleReset={this.handleReset}
 							handleEdit={this.handleEdit}
 							handleDelete={this.handleDelete}
+							isEdit={this.state.isEdit}
 						/>
 					</div>
 				</div>
